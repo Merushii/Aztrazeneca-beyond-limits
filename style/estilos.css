@@ -1,0 +1,671 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    font-family: Arial;
+}
+
+
+.nav{
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+    --img1: scale(1);
+    --img2: scale(0);
+}
+
+.nav:has( .dropdown:target ){
+    --img1: scale(0);
+    --img2: scale(1);
+
+    --clip:inset(0 0 0 0);
+
+}
+
+.nav__container{
+    width: 96%;
+    margin: 0 auto;
+    height: 70px;
+
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "title img";
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.nav__title{
+    grid-area: title;
+}
+
+
+.nav__menu{
+    grid-area: img;
+    position: relative;
+    z-index: 10;
+
+    transform: var(--img1);
+}
+
+.nav__menu--second{
+    transform: var(--img2);
+}
+
+.nav__icon{
+    width: 30px;
+    display: block;
+}
+
+.dropdown{
+    position: absolute;
+    background-color: #000;
+    width: 50%;
+    max-width: 300px;
+    height: 750px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 1em;
+
+    display: grid;
+    align-content:center ;
+    gap: 1rem;
+
+    overflow-y: auto;
+
+
+    clip-path: var(--clip, inset(0 0 100% 100%));
+    transition: clip-path .5s;
+    z-index: 1;
+}
+
+.dropdown__list{
+    list-style: none;
+}
+
+.dropdown__link{
+    color: rgb(184, 187, 191);
+    padding: 1em .7em;
+    text-decoration: none;
+    
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    position: relative;
+    background-color: var(--bg, transparent);
+    border-radius: 6px;
+}
+
+.dropdown_btn{
+    background-color: #830051;
+    color: rgb(184, 187, 191);
+    padding: 1em .7em;
+    border: none;
+}
+
+.dropdown_btn:hover{
+    background-color: #a32673;
+    cursor: pointer;
+}
+
+.dropdown__close-icon {
+    margin-right: 5px; /* Ajusta el margen según sea necesario */
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
+.dropdown__list:has( :checked ){
+    --rows: 1fr;
+    --rotate: rotate(180deg);
+    --bg: #28303B;
+}
+
+.dropdown__check{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.dropdown__arrow{
+    margin-left: auto;
+    transform: var(--rotate, 0);
+    transition: .2s transform;
+}
+
+.dropdown__content{
+    display: grid;
+    grid-template-rows: var(--rows, 0fr);
+    transition: .3s grid-template-rows;
+}
+
+.dropdown__sub{
+    overflow: hidden;
+
+}
+
+.dropdown__li{
+    width: 85%;
+    list-style: none;
+    margin-left: auto;
+}
+
+.dropdown__anchor{
+    padding: 1em 0;
+    display: block;
+    color: #B6BABE;
+    text-decoration: none;
+}
+
+/* Ocultar contenido cuando se agrega la clase 'hidden' */
+.hidden {
+    display: none !important; /* Importante para anular cualquier regla de estilo anterior */
+}
+
+/* Estilo de transición cuando se elimina la clase 'hidden' */
+#header:not(.hidden) {
+    opacity: 1; /* Mostrar el elemento */
+}
+
+.show-button{
+    display: block;
+    font-size: 25px;
+    margin: 10px auto; /* Margen para centrar el botón */
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 2%;
+}
+
+.flecha_abajo-3{
+     font-size: 20px;
+     top: auto;
+}
+
+
+header{
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ab2477;
+    padding-bottom: 60px;
+    transition: opacity 0.5s ease;
+}
+
+
+.contenedor-textos{
+    width: 50%;
+    color: #fff;
+}
+
+.text_titulo{
+    font-size: 80px;
+
+}
+
+.text-parrafo{
+    font-size: 20px;
+    padding-right: 10%;
+    padding-top: 40px;
+    
+}
+
+.img_scroll{
+    width: 30%;
+    border-radius: 30px;
+    z-index: 1;
+    
+}
+
+.wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.wave2{
+    position: absolute;
+    bottom: 55%; /* Ajusta este valor según sea necesario */
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Asegura que .wave2 esté delante de .wave */
+}
+
+
+/*Cards*/
+.container-card {
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    height: 100%;
+    max-height: 1100px;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+.title-cards {
+    width: 100%;
+    max-width: 1080px;
+    margin: auto;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 20px;
+    text-align: center;
+    color: #830051;
+    animation: aparecerTexto 1.5s forwards;
+}
+
+.card_one {
+    width: 450px;
+    height: 280px;
+    margin: 20px;
+    top: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    transition: all 400ms ease-out;
+    cursor: default;
+}
+
+.card_one:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+}
+
+.card_one img {
+    width: 36%;
+    height: 130px;
+    display: block;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+.card_one .contenido-card {
+    padding: 15px;
+    text-align: center;
+}
+
+.card_one .contenido-card p {
+    line-height: 1.8;
+    color: #6a6a6a;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container-card,
+    .title-cards {
+        justify-content: center; /* Centra horizontalmente en dispositivos móviles */
+        font-size: 14px;
+    }
+
+
+    .card_one {
+        width: 40%; /* Ajusta el ancho de la tarjeta al ancho de la pantalla */
+        margin: 20px auto; /* Centra la tarjeta horizontalmente */
+        height: 250px;
+        top: auto;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+        transition: all 400ms ease-out;
+        cursor: default;    
+    }
+
+    .card_one .contenido-card p {
+        line-height: 1.8;
+        color: #6a6a6a;
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+
+.pie-pagina{
+    width: 100%;
+    background-color: #000000;
+    z-index: 0;
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1228px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap:40px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 90%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 220px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-2{
+    background-color: #000000;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+}
+
+  /* Define la animación de escritura */
+@keyframes escribir {
+    from {
+      width: 0; /* Comienza con un ancho de 0 */
+    }
+    to {
+      width: 100%; /* Termina con el ancho completo */
+    }
+  }
+
+  @keyframes aparecerTexto {
+    from {
+      opacity: 0; /* Comienza con una opacidad de 0 */
+    }
+    to {
+      opacity: 1; /* Termina con una opacidad de 1 (completamente visible) */
+    }
+  }
+
+
+/* Estilos adicionales para hacer responsivo el contenedor */
+@media (max-width: 1280px) {
+    .contenedor {
+        background-color: transparent; /* Quita el color de fondo del contenedor en dispositivos responsivos */
+    }
+
+    .contenedor_block h1 {
+        font-size: 20px; /* Reducir el tamaño del título en pantallas más pequeñas */
+    }
+
+    .contenedor_block p {
+        font-size: 15px; /* Reducir el tamaño del texto en pantallas más pequeñas */
+        padding: 20px; /* Reducir el relleno del párrafo en pantallas más pequeñas */
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .titulo {
+        color: #830051; /* Cambia el color del título a #830051 en dispositivos con un ancho máximo de 768px */
+    }
+
+    .card {
+        width: 90%; /* Ancho más pequeño en dispositivos pequeños */
+        margin: 10px auto; /* Margen más pequeño */
+        background-color: transparent;
+        position: relative; /* Asegura que la tarjeta sirva como un contenedor relativo */
+    }
+
+    .card .back h3 {
+        font-size: 15px;
+        margin-top: 10px;
+        letter-spacing: 2px;
+    }
+    
+    .card .back p {
+        letter-spacing: 1px;
+        overflow: hidden; /* Oculta el texto que se desborda */
+        display: -webkit-box;
+        -webkit-line-clamp: 5; /* Limita el número de líneas a 5 */
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis; /* Muestra puntos suspensivos cuando el texto se desborda */
+        white-space: normal; /* Restablece el comportamiento normal de espaciado en blanco */
+    }
+    
+    .card .back p::after {
+        content: attr(data-full-text); /* Muestra el texto completo */
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(255, 255, 255, 0.9); /* Color de fondo semi-transparente */
+        border: 1px solid #ccc; /* Borde ligero */
+        border-radius: 5px; /* Bordes redondeados */
+        padding: 10px; /* Espaciado interno */
+        max-width: 300px; /* Define el ancho máximo de la ventana emergente */
+        word-wrap: break-word;
+        top: 0; /* Ajusta la posición del texto emergente */
+        left: 0; /* Ajusta la posición del texto emergente */
+        opacity: 0; /* Inicialmente oculta el texto completo */
+        transition: opacity 0.3s ease; /* Suaviza la transición */
+        color: black; /* Color del texto */
+    }
+    
+    .card .back p:hover::after {
+        opacity: 1; /* Muestra el texto completo al hacer hover */
+    }
+}
+
+/* Media queries para dispositivos de pantalla más pequeña */
+@media (max-width: 1080px) {
+    header {
+        position: relative;
+        height: 90vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ab2477;
+        padding-bottom: 60px;
+        transition: opacity 0.5s ease;
+    }
+    
+    .contenedor-textos {
+        width: 60%; /* Cambiado para dispositivos más pequeños */
+        max-width: 700px; /* Ajusta el ancho máximo según sea necesario */
+        color: #fff;
+        text-align: center; /* Centra el texto */
+    }
+    
+    .text_titulo {
+        font-size: 30px; /* Reducido el tamaño del título */
+        margin-top: 90px; /* Espacio entre título y párrafo */
+    }
+    
+    .text-parrafo {
+        font-size: 15px; /* Reducido el tamaño del párrafo */
+        padding: 0 20px; /* Espacio interno en los lados */
+        margin-top: 20px;
+    }
+    
+    .img_scroll {
+        width: 50%; /* Reducido el tamaño de la imagen */
+        height: 80%;
+        max-width: 300px; /* Ajusta el ancho máximo según sea necesario */
+        z-index: 1;
+    }
+    
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .wave2 {
+        position: absolute;
+        bottom: 50%; /* Ajusta este valor según sea necesario */
+        left: 0;
+        width: 100%;
+        z-index: 2; /* Asegura que .wave2 esté delante de .wave */
+    }
+}
+
+/* Media queries para dispositivos de pantalla aún más pequeña */
+@media (max-width: 576px) {
+    header {
+        position: relative;
+        height: 60vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ab2477;
+        padding-bottom: 60px;
+        transition: opacity 0.5s ease;
+    }
+    
+    .contenedor-textos {
+        width: 60%; /* Cambiado para dispositivos más pequeños */
+        max-width: 700px; /* Ajusta el ancho máximo según sea necesario */
+        color: #fff;
+        text-align: center; /* Centra el texto */
+    }
+    
+    .text_titulo {
+        font-size: 22px; /* Reducido el tamaño del título */
+        margin-bottom: 40px; /* Espacio entre título y párrafo */
+    }
+    
+    .text-parrafo {
+        margin-bottom: 90px;
+        font-size: 13px; /* Reducido el tamaño del párrafo */
+        padding: 0 20px; /* Espacio interno en los lados */
+    }
+    
+    .img_scroll {
+        width: 35%; /* Reducido el tamaño de la imagen */
+        height: 40%;
+        z-index: 1;
+    }
+    
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .wave2 {
+        position: absolute;
+        bottom: 84%; /* Ajusta este valor según sea necesario */
+        left: 0;
+        width: 100%;
+        z-index: 2; /* Asegura que .wave2 esté delante de .wave */
+    }
+}
+
+@media (max-width: 400px) {
+    header {
+        position: relative;
+        height: 60vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ab2477;
+        padding-bottom: 60px;
+        transition: opacity 0.5s ease;
+    }
+    
+    .contenedor-textos {
+        width: 60%; /* Cambiado para dispositivos más pequeños */
+        max-width: 700px; /* Ajusta el ancho máximo según sea necesario */
+        color: #fff;
+        text-align: center; /* Centra el texto */
+    }
+    
+    .text_titulo {
+        font-size: 22px; /* Reducido el tamaño del título */
+        margin-bottom: 40px; /* Espacio entre título y párrafo */
+    }
+    
+    .text-parrafo {
+        margin-bottom: 90px;
+        font-size: 13px; /* Reducido el tamaño del párrafo */
+        padding: 0 20px; /* Espacio interno en los lados */
+    }
+    
+    .img_scroll {
+        width: 35%; /* Reducido el tamaño de la imagen */
+        height: 40%;
+        z-index: 1;
+    }
+    
+    .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    
+    .wave2 {
+        position: absolute;
+        bottom: 84%; /* Ajusta este valor según sea necesario */
+        left: 0;
+        width: 100%;
+        z-index: 2; /* Asegura que .wave2 esté delante de .wave */
+    }
+
+    .title-cards {
+        justify-content: center; /* Centra horizontalmente en dispositivos móviles */
+        font-size: 13px;
+    }
+
+    .card_one img {
+        width: 30%;
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+        padding: 15px 0;
+    }
+
+    .card_one {
+        width: 30%; /* Ajusta el ancho de la tarjeta al ancho de la pantalla */
+        margin: 20px auto; /* Centra la tarjeta horizontalmente */
+        height: 290px;
+        top: auto;
+        border-radius: 15px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+        transition: all 400ms ease-out;
+        cursor: default;    
+    }
+}
+
+
+

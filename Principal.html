@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Principal</title>
+    <link rel="stylesheet" href="./style/estilos.css" />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Recupera el nombre de usuario del almacenamiento de sesiÃ³n
+        var nombreUsuario = sessionStorage.getItem('nombreUsuario');
+    
+        // Muestra el nombre de usuario en la pÃ¡gina
+        document.getElementById('nombreUsuario').textContent = nombreUsuario;
+    });
+    </script>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__container">
+        <img src="./assets/logo_astra.svg" class="dropdown__icon" />
+
+        <a href="#menu" class="nav__menu">
+          <img src="./assets/menu.svg" class="nav__icon" />
+        </a>
+
+        <a href="#" class="nav__menu nav__menu--second">
+          <img src="./assets/close.svg" class="nav__icon" />
+        </a>
+
+        <ul class="dropdown" id="menu">
+          <center><h2 style="color:#fff;" id="nombreUsuario"></h2></center>
+          <li class="dropdown__list">
+            <a href="./index.html" class="dropdown__link">
+              <img src="./assets/house.svg" class="dropdown__icon" />
+              <span class="dropdown__span">Inicio</span>
+            </a>
+          </li>
+
+          <li class="dropdown__list">
+            <a href="#" class="dropdown__link">
+              <img src="./assets/projects.svg" class="dropdown__icon" />
+              <span class="dropdown__span">Recorridos</span>
+              <img src="./assets/down.svg" class="dropdown__arrow" />
+
+              <input type="checkbox" class="dropdown__check" />
+            </a>
+
+            <div class="dropdown__content">
+              <ul class="dropdown__sub">
+                <li class="dropdown__li">
+                  <a href="#" class="dropdown__anchor">Recorrido 1</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="dropdown__list">
+            <a href="#" class="dropdown__link">
+              <img src="./assets/email.svg" class="dropdown__icon" />
+              <span class="dropdown__span">Contacto</span>
+              <img src="./assets/down.svg" class="dropdown__arrow" />
+
+              <input type="checkbox" class="dropdown__check" />
+            </a>
+
+            <div class="dropdown__content">
+              <ul class="dropdown__sub">
+                <li class="dropdown__li">
+                  <a href="#" class="dropdown__anchor">Contact 1</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="dropdown__list">
+            <button class="dropdown_btn" onclick="cerrarSesion()">
+              Cerrar sesión
+              <span class="dropdown__close-icon">&times;</span>
+            </button>
+        </li>
+        </ul>
+      </div>
+    </nav>
+
+    <br>
+    <br>
+
+    <section class="wpb_row bg-fixed">
+      <div class="container">
+        <iframe style="height: 650px; width: 100%" src="./Recorrido/index.html">
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+          </script>
+        </iframe>
+      </div>
+    </section>
+    <br>
+    <button id="showContentButton" class="show-button"><img class="flecha_abajo-3" src="./Imagenes/icons8-abajo-3-30.png">Ver más</button>
+    <header id="header" class="hidden">
+      <svg class="wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#fff" fill-opacity="1" d="M0,64L48,96C96,128,192,192,288,208C384,224,480,192,576,154.7C672,117,768,75,864,58.7C960,43,1056,53,1152,53.3C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+      </svg>
+        <div class="contenedor-textos">
+            <h1 class="text_titulo">¿En que consiste el tour?</h1>
+            <p class="text-parrafo">
+                El tour ofrece una experiencia interactiva en 3D que te lleva a través
+                del Centro Global de Innovación y Tecnología de AstraZeneca. Descubre
+                las últimas innovaciones en salud y medicina, interactuar con entornos
+                virtuales diseñados para ser accesibles a todos, y sumergete en
+                escenarios realistas a través de cualquier dispositivo con opciones de
+                realidad virtual.
+              </p>
+        </div>
+
+        <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path fill="#fff" fill-opacity="0.5" d="M0,64L48,96C96,128,192,192,288,208C384,224,480,192,576,154.7C672,117,768,75,864,58.7C960,43,1056,53,1152,53.3C1248,53,1344,43,1392,37.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <img class="img_scroll" src="./Imagenes/Recorrido.gif" alt="" id="animacion">
+    </header>
+    
+
+    <!--   Tarjetas-->
+    <div class="title-cards hidden" id="titleCards">
+      <h3>Características del tour</h3>
+    </div>
+    <div class="container-card hidden" id="containerCard">
+      <div class="card_one">
+        <figure>
+          <img src="./Imagenes/OIDO.png" />
+        </figure>
+        <div class="contenido-card">
+          <p>
+            Navegacion adaptativa y soporte para tecnologías de asistencia,
+            ofreciendo una experiencia accesible para todos.
+          </p>
+        </div>
+      </div>
+      <div class="card_one">
+        <figure>
+          <img src="./Imagenes/3D.png" />
+        </figure>
+        <div class="contenido-card">
+          <p>
+            Objetos 3D interactivos detallados con herramientas informativas
+            para un aprendizaje integral.
+          </p>
+        </div>
+      </div>
+      <div class="card_one">
+        <figure>
+          <img src="./Imagenes/CARDBOARD.png" />
+        </figure>
+        <div class="contenido-card">
+          <p>
+            Experiencias inmersivas adaptadas a dispositivos de realidad virtual
+            accesibles como Google Cardboard.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--Fin   Tarjetas-->
+
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+        <div class="box">
+          <figure>
+            <a href="#">
+              <img
+                src="./Imagenes/logo_footerAstra.png"
+                alt="Logo de AstraZeneca"
+              />
+            </a>
+          </figure>
+        </div>
+        <div class="box">
+          <h2>En caso de algún problema consulte a soporte técnico al:</h2>
+          <p>855-05-ASTRA (25875)</p>
+        </div>
+
+      </div>
+      <div class="grupo-2">
+        <small
+          >&copy; <b>AstraZeneca</b> 2024 - Todos los Derechos
+          Reservados.</small
+        >
+      </div>
+    </footer>
+
+    <script src="./Js/main.js"></script>
+    <script src="./Js/cerrar_sesion.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Server (CPU)
+* source:	https://sketchfab.com/3d-models/server-cpu-12126491216b49c7b8b128c950e57ca3
+* author:	Ankush Gupta (https://sketchfab.com/Ankush4135)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Server (CPU)" (https://sketchfab.com/3d-models/server-cpu-12126491216b49c7b8b128c950e57ca3) by Ankush Gupta (https://sketchfab.com/Ankush4135) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

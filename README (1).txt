@@ -9,6 +9,10 @@ Este proyecto consiste en un tour virtual de las instalaciones de AstraZeneca, c
 - Enfoque en accesibilidad, interactividad y escalabilidad para una experiencia de usuario mejorada.
 - Compatible con diversos dispositivos, ya que se trata de una página web accesible desde cualquier navegador.
 
+##Credenciales para acceder a la plataforma 
+Usuario: Juanita
+Contraseña: juanita1
+
 ## Contribuyentes
 
 - Diego Alberto Alcocer Villeda
